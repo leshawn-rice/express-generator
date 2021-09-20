@@ -42,7 +42,7 @@
     shell: "cd {{ path }};npm install"
 
   - name: Initialize Git Repo
-    command: "git {{ item }}"
+    shell: "git {{ item }}"
     with_items:
     - "init"
     - "add ."
