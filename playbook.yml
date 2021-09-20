@@ -42,9 +42,12 @@
     shell: "cd {{ path }};npm install"
 
   - name: Initialize Git Repo
-    shell: "git {{ item }}"
+    command: git {{ item }}
+    args:
+      chdir: "{{ path }}"
     with_items:
-    - "init"
-    - "add ."
-    - 'commit -m "initial commit"'
+    - init
+    - add .
+    - commit -m "initial commit"
+    - branch -M main
 
