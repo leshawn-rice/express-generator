@@ -1,0 +1,49 @@
+- name: Create Express Backend
+  hosts: localhost
+
+  tasks:
+
+  - name: Make Directories
+    file:
+      path: "{{ path }}/{{ item }}"
+      state: directory
+    with_items:
+    - routes
+    - models
+    - __tests__
+    - helpers
+    - middleware
+
+  - name: Create Files from templates
+    template:
+      src: "{{source_dir }}/templates/{{ item.src }}"
+      dest: "{{ path }}/{{ item.dest }}"
+    loop:
+    - {src: config.j2, dest: config.js}
+    - {src: errors.j2, dest: errors.js}
+    - {src: server.j2, dest: server.js}
+    - {src: db.j2, dest: db.js}
+    - {src: app.j2, dest: app.js}
+    - {src: package.j2, dest: package.json}
+    - {src: auth.j2, dest: middleware/auth.js}
+    - {src: tokens.j2, dest: helpers/tokens.js}
+    - {src: authRoutes.j2, dest: routes/auth.js}
+    - {src: user.j2, dest: models/user.js}
+    - {src: readme.j2, dest: README.md}
+    - {src: gitignore.j2, dest: .gitignore}
+
+  - name: Ensure NPM is installed
+    apt:
+      pkg:
+      - npm
+      state: present
+
+  - name: NPM Install packages
+    shell: "cd {{ path }};npm install"
+
+  - name: Initialize Git Repo
+    command: git {{ item }}
+    with_items:
+    - "init"
+    - 'commit -m "initial commit"'
+
