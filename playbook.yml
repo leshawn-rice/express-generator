@@ -44,7 +44,7 @@
   - name: Initialize Git Repo
     command: "git {{ item }}"
     with_items:
-    - init
-    - add .
+    - "init"
+    - "add ."
     - 'commit -m "initial commit"'
 
