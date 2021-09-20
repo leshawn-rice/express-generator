@@ -14,7 +14,7 @@ Download the source code, then run setup.sh [npm](https://docs.www.npmjs.com/) t
 bash setup.sh
 ```
 
-## [Resulting Directory](https://github/leshawn-rice/express-generator-test)
+## [Resulting Directory](https://github/leshawn-rice/express-generator-example)
 
 ## Usage
 
