@@ -26,16 +26,16 @@ foobar
 Database Name:
 foobar_db
 
-echo Author:
+Author:
 Leshawn Rice
 
-echo Description:
+Description:
 foobar is a backend built in Express
 
-echo Default Secret Key:
+Default Secret Key:
 secret-dev
 
-echo Default Port:
+Default Port:
 3001
 ```
 

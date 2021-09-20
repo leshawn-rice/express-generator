@@ -22,6 +22,4 @@ source="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 playbook="$source/playbook.yml"
 
-echo $playbook
-
 ansible-playbook $playbook -e "name=$project author=$author path=$path description=$description secret_key=$secret database=$database default_port=$port source_dir=$source"
