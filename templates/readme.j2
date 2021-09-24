@@ -15,8 +15,10 @@ npm install
 ### Basic Endpoints
 
 ```javascript
-const {user, token} = await axios.get('/register');
-const {user, token} = await axios.get('/login');
+const {user, token} = await axios.post('/register', {username: 'testuser', password: 'testpassword', email: 'test@test.com'});
+// returns {token: 'userToken', user: {username: 'testuser', email: 'test@test.com' ...}}
+const {user, token} = await axios.post('/login', {username: 'testuser', password: 'testpassword'});
+// returns {token: 'userToken', user: {username: 'testuser', email: 'test@test.com' ...}}
 ```
 ### Basic Database Usage
 ```javascript
