@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 // External Dependencies
-const { Client } = require("pg");
+const { Client } = require('pg');
 
 /** Database setup for {{ database }}. */
-const { getDatabaseUri } = require("./config");
+const { getDatabaseUri } = require('./config');
 const db = new Client({
   connectionString: getDatabaseUri(),
 });
